@@ -20,7 +20,7 @@ def initialize_base(engine):
     Base.metadata.create_all(engine)
 
 
-class PostModel(Base):
+class Post(Base):
     __tablename__ = 'posts'
 
     title = Column(String(50))
@@ -31,3 +31,16 @@ class PostModel(Base):
 
     def __repr__(self):
         return "<Post('%s')>" % (self.id)
+
+
+class User(Base):
+    __tablename__ = 'users'
+
+    # Main Fields
+    username = Column(String(15))
+    email = Column(String(50))
+    joined = Column(DateTime)
+    last_online = Column(DateTime)
+
+    def __repr__(self):
+        return "<User('%s')>" % (self.id)
